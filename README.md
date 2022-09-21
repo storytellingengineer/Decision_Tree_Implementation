@@ -29,7 +29,6 @@ So, let's get started.
 15.	[Confusion matrix](#15)
 16.	[Classification report](#16)
 17.	[Results and conclusion](#17)
-18. [References](#18)
 
 # **1. Introduction to Decision Tree algorithm** <a class="anchor" id="1"></a>
 [Table of Contents](#0.1)
