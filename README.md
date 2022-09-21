@@ -1,5 +1,5 @@
 # Decision_Tree_Implementation
-
+<a class="anchor" id="0"></a>
 Hello friends,
 
 In this repository, I have used a Decision Tree Classifier to predict the safety of the car. I built two models, one with criterion `gini index` and another one with criterion `entropy`. I implemented DecisionTreeClassifier with Python and Scikit-Learn.
@@ -161,3 +161,90 @@ Two approaches which can be used to avoid overfitting are as follows:-
 [Table of Contents](#0.1)
 
 We are using the car price evaluation dataset. Link: https://www.kaggle.com/datasets/aayushsaxena0811/car-evaluationcsv
+
+# **9. Exploratory data analysis** <a class="anchor" id="9"></a>
+[Table of Contents](#0.1)
+
+Now, I will explore the data to gain insights about the data. 
+- There are 7 variables in the dataset. All the variables are of categorical data type.
+- These are given by `buying`, `maint`, `doors`, `persons`, `lug_boot`, `safety` and `class`.
+- `class` is the target variable.
+
+# **10. Declare feature vector and target variable** <a class="anchor" id="10"></a>
+[Table of Contents](#0.1)
+
+    X = data.drop(['class'], axis=1)
+    y = data['class']
+
+# **11. Split data into separate training and test set** <a class="anchor" id="11"></a>
+[Table of Contents](#0.1)
+
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.33, random_state = 42)
+
+# **12. Feature Engineering** <a class="anchor" id="12"></a>
+[Table of Contents](#0.1)
+
+- **Feature Engineering** is the process of transforming raw data into useful features that help us to understand our model better and increase its predictive power. I will carry out feature engineering on different types of variables.
+- First, I will check the data types of variables again.
+- Now, I will encode the categorical variables. Using category_encoders.OrdinalEncoder
+
+# **13. Decision Tree Classifier with criterion gini index** <a class="anchor" id="13"></a>
+
+[Table of Contents](#0.1)
+
+    from sklearn.tree import DecisionTreeClassifier
+    clf_gini = DecisionTreeClassifier(criterion='gini', max_depth=3, random_state=0)
+    clf_gini.fit(X_train, y_train)
+    y_pred_gini = clf_gini.predict(X_test)
+
+- Here, **y_test** are the true class labels and **y_pred_gini** are the predicted class labels in the test-set.
+- `clf_gini` is the object of DecisionTreeClassifier 
+
+# **14. Decision Tree Classifier with criterion entropy** <a class="anchor" id="14"></a>
+
+[Table of Contents](#0.1)
+
+    from sklearn.tree import DecisionTreeClassifier
+    clf_en = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=0)
+    clf_en.fit(X_train, y_train)
+    y_pred_en = clf_en.predict(X_test)
+
+# **15. Confusion matrix** <a class="anchor" id="15"></a>
+[Table of Contents](#0.1)
+
+A confusion matrix is a tool for summarizing the performance of a classification algorithm. A confusion matrix will give us a clear picture of classification model performance and the types of errors produced by the model. It gives us a summary of correct and incorrect predictions broken down by each category. The summary is represented in a tabular form.
+
+Four types of outcomes are possible while evaluating a classification model performance. These four outcomes are described below:-
+
+- **True Positives (TP)** – True Positives occur when we predict an observation belongs to a certain class and the observation actually belongs to that class.
+
+- **True Negatives (TN)** – True Negatives occur when we predict an observation does not belong to a certain class and the observation actually does not belong to that class.
+
+- **False Positives (FP)** – False Positives occur when we predict an observation belongs to a    certain class but the observation actually does not belong to that class. This type of error is called **Type I error.**
+
+- **False Negatives (FN)** – False Negatives occur when we predict an observation does not belong to a certain class but the observation actually belongs to that class. This is a very serious error and it is called **Type II error.**
+
+These four outcomes are summarized in a confusion matrix given below.
+
+# **16. Classification Report** <a class="anchor" id="16"></a>
+[Table of Contents](#0.1)
+
+**Classification report** is another way to evaluate the classification model performance. It displays the  **precision**, **recall**, **f1** and **support** scores for the model. I have described these terms in later.
+
+# **17. Results and conclusion** <a class="anchor" id="17"></a>
+[Table of Contents](#0.1)
+
+1.	In this project, I build a Decision-Tree Classifier model to predict the safety of the car. I build two models, one with criterion `gini index` and another one with criterion `entropy`. The model yields a very good performance as indicated by the model accuracy in both the cases which was found to be 0.8021.
+2.	In the model with criterion `gini index`, the training-set accuracy score is 0.7865 while the test-set accuracy to be 0.8021. These two values are quite comparable. So, there is no sign of overfitting.
+3.	Similarly, in the model with criterion `entropy`, the training-set accuracy score is 0.7865 while the test-set accuracy to be 0.8021.We get the same values as in the case with criterion `gini`. So, there is no sign of overfitting.
+4.	In both the cases, the training-set and test-set accuracy score is the same. It may happen because of small dataset.
+5.	The confusion matrix and classification report yields very good model performance.
+
+---
+
+So, now we will come to the end of this repo. I hope you find this kernel useful and enjoyable. Your comments and feedback are most welcome.
+
+Thank you
+
+[Go to Top](#0)
