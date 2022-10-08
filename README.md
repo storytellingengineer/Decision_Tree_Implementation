@@ -244,6 +244,6 @@ These four outcomes are summarized in a confusion matrix given below.
 
 So, now we will come to the end of this repo. I hope you find this kernel useful and enjoyable. Your comments and feedback are most welcome.
 
-Thank you
+# Thank you for reading this repo. Connect with me on <a href="https://www.linkedin.com/in/aayushsaxena08/">LinkedIn</a>⭐
 
 [Go to Top](#0)
